@@ -26,7 +26,7 @@ public:
 	AVLTree();
 	void Add(Key key, Data data);
 	void Delete(const Key key);
-	Data Find(Key key);
+	Record<Key, Data>* Find(Key key);
 	void Print();
 	~AVLTree();
 };
@@ -55,10 +55,16 @@ void AVLTree<Key, Data>::Delete(const Key key)
 }
 
 template<class Key, class Data>
-Data AVLTree<Key, Data>::Find(Key key)
+Record<Key, Data>* AVLTree<Key, Data>::Find(Key key)
 {
 	Record<Key, Data>* rec = head;
-	return find(rec, key)->data;
+	Record<Key, Data>* tmp = find(rec, key);
+	if (tmp->key != key)
+	{
+		cout << "Not find";
+		return nullptr;
+	}
+	return find(rec, key);
 }
 
 template<class Key, class Data>
@@ -119,19 +125,16 @@ Record<Key, Data>* AVLTree<Key, Data>::find(Record<Key, Data>* _head_, Key key)
 		return _head_;
 	if (key < _head_->key && _head_->left != nullptr)
 	{
-		_head_->left = find(_head_->left, key);
-		return _head_->left;
+		_head_ = find(_head_->left, key);
 	}
 	else
 	{
 		if (key > _head_->key && _head_->left != nullptr)
 		{
-			_head_->right = find(_head_->right, key);
-			return _head_->right;
+			_head_ = find(_head_->right, key);
 		}
 	}
-	cout << "Error: Key " << key << " not found!";
-	exit(-1);
+	return _head_;
 }
 
 template<class Key, class Data>
