@@ -17,7 +17,8 @@ int main()
 	tree.Add(9, 90);
 	tree.Add(10, 100);
 	tree.Print();
-	cout << "Search by key 4 -> data = " << tree.Find(4);
+	cout << "Search by key 4 -> data = " << tree.Find(4) << endl;
+	cout << "Search by key 3 -> data = " << tree.Find(3) << endl;
 	cout << endl << endl;
 
 	tree.Delete(4);

@@ -1,0 +1,10 @@
+^D:\MP2-LAB7-AVLTREE\SLN\VS19\CMAKEFILES\EBA6B7AFE4C6706C8CEB86E66F069E23\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/mp2-lab7-AVLTree -BD:/mp2-lab7-AVLTree/sln/vs19 --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/mp2-lab7-AVLTree/sln/vs19/AVLTree.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

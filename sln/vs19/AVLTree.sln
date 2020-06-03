@@ -1,0 +1,47 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 16
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ALL_BUILD", "ALL_BUILD.vcxproj", "{700EA307-5F0A-3127-9C3B-FEB4A9B41627}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DAFA2193-C90B-34DD-8FBB-479B2657A23E} = {DAFA2193-C90B-34DD-8FBB-479B2657A23E}
+		{BB388113-DC60-3D51-B28A-21364490691B} = {BB388113-DC60-3D51-B28A-21364490691B}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AVLTree", "include\AVLTree.vcxproj", "{88C95D5E-468D-329C-A278-56822022028A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DAFA2193-C90B-34DD-8FBB-479B2657A23E} = {DAFA2193-C90B-34DD-8FBB-479B2657A23E}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ZERO_CHECK", "ZERO_CHECK.vcxproj", "{DAFA2193-C90B-34DD-8FBB-479B2657A23E}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sample_AVLTree", "samples\sample_AVLTree.vcxproj", "{BB388113-DC60-3D51-B28A-21364490691B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DAFA2193-C90B-34DD-8FBB-479B2657A23E} = {DAFA2193-C90B-34DD-8FBB-479B2657A23E}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{700EA307-5F0A-3127-9C3B-FEB4A9B41627}.Debug|x64.ActiveCfg = Debug|x64
+		{700EA307-5F0A-3127-9C3B-FEB4A9B41627}.Release|x64.ActiveCfg = Release|x64
+		{88C95D5E-468D-329C-A278-56822022028A}.Debug|x64.ActiveCfg = Debug|x64
+		{88C95D5E-468D-329C-A278-56822022028A}.Release|x64.ActiveCfg = Release|x64
+		{DAFA2193-C90B-34DD-8FBB-479B2657A23E}.Debug|x64.ActiveCfg = Debug|x64
+		{DAFA2193-C90B-34DD-8FBB-479B2657A23E}.Debug|x64.Build.0 = Debug|x64
+		{DAFA2193-C90B-34DD-8FBB-479B2657A23E}.Release|x64.ActiveCfg = Release|x64
+		{DAFA2193-C90B-34DD-8FBB-479B2657A23E}.Release|x64.Build.0 = Release|x64
+		{BB388113-DC60-3D51-B28A-21364490691B}.Debug|x64.ActiveCfg = Debug|x64
+		{BB388113-DC60-3D51-B28A-21364490691B}.Debug|x64.Build.0 = Debug|x64
+		{BB388113-DC60-3D51-B28A-21364490691B}.Release|x64.ActiveCfg = Release|x64
+		{BB388113-DC60-3D51-B28A-21364490691B}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DBC9C6C1-B881-326A-BFDE-EC46436FC8BE}
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

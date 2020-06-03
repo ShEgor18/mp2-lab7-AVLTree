@@ -117,11 +117,19 @@ Record<Key, Data>* AVLTree<Key, Data>::find(Record<Key, Data>* _head_, Key key)
 		throw "Error";
 	if (key == _head_->key)
 		return _head_;
-	if (key < _head_->key && _head_->left!=nullptr)
+	if (key < _head_->key && _head_->left != nullptr)
+	{
 		_head_->left = find(_head_->left, key);
+		return _head_->left;
+	}
 	else
-		if(key > _head_->key && _head_->left != nullptr)
-		_head_->right = find(_head_->right, key);
+	{
+		if (key > _head_->key && _head_->left != nullptr)
+		{
+			_head_->right = find(_head_->right, key);
+			return _head_->right;
+		}
+	}
 	cout << "Error: Key " << key << " not found!";
 	exit(-1);
 }
