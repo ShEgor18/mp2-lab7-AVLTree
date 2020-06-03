@@ -1,4 +1,0 @@
-D:/mp2-lab7-AVLTree/sln/vs19/CMakeFiles/ALL_BUILD.dir
-D:/mp2-lab7-AVLTree/sln/vs19/CMakeFiles/ZERO_CHECK.dir
-D:/mp2-lab7-AVLTree/sln/vs19/include/CMakeFiles/AVLTree.dir
-D:/mp2-lab7-AVLTree/sln/vs19/samples/CMakeFiles/sample_AVLTree.dir

@@ -20,6 +20,9 @@ int main()
 	cout << "Search by key 4 -> data = " << tree.Find(4)->data << endl;
 	cout << "Search by key 3 -> data = " << tree.Find(3)->data << endl;
 	cout << "Search by key 2 -> data = " << tree.Find(2)->data << endl;
+	tree.Add(10, 110);
+	tree.Add(10, 120);
+	cout << "Search by key 10 -> data = " << tree.Find(10)->data << endl;
 	cout << endl << endl;
 
 	tree.Delete(4);

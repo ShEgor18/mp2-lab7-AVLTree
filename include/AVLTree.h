@@ -41,9 +41,8 @@ AVLTree<Key, Data>::AVLTree()
 template<class Key, class Data>
 void AVLTree<Key, Data>::Add(Key key, Data data)
 {
-	Record<Key, Data>* rec = head;
-	head = insert(rec, key, data);
-	size++;
+	if (Find(key) == nullptr) size++;
+	head = insert(head, key, data);
 }
 
 template<class Key, class Data>
@@ -59,11 +58,10 @@ Record<Key, Data>* AVLTree<Key, Data>::Find(Key key)
 {
 	Record<Key, Data>* rec = head;
 	Record<Key, Data>* tmp = find(rec, key);
-	if (tmp->key != key)
-	{
-		cout << "Not find";
+	if (tmp == nullptr)
 		return nullptr;
-	}
+	if (tmp->key != key)
+		return nullptr;
 	return find(rec, key);
 }
 
@@ -86,11 +84,19 @@ template<class Key, class Data>
 Record<Key, Data>* AVLTree<Key, Data>::insert(Record<Key, Data>* _head_, Key k, Data d)
 {
 	if (_head_ == nullptr) return new Record<Key, Data>(k, d);
-	if (k == _head_->key) _head_->data = d;
+	if (k == _head_->key)
+	{
+		_head_->data = d;
+		return balance(_head_);
+	}
+	else
 	if (k < _head_->key)
 		_head_->left = insert(_head_->left, k, d);
 	else
-		_head_->right = insert(_head_->right, k, d);
+	{
+		if (k > _head_->key)
+			_head_->right = insert(_head_->right, k, d);
+	}
 	return balance(_head_);
 }
 
@@ -117,24 +123,12 @@ Record<Key, Data>* AVLTree<Key, Data>::remove(Record<Key, Data>* _head_, Key k)
 }
 
 template<class Key, class Data>
-Record<Key, Data>* AVLTree<Key, Data>::find(Record<Key, Data>* _head_, Key key)
+Record<Key, Data>* AVLTree<Key, Data>::find(Record<Key, Data>* _head_, Key k)
 {
-	if (_head_ == nullptr)
-		throw "Error";
-	if (key == _head_->key)
-		return _head_;
-	if (key < _head_->key && _head_->left != nullptr)
-	{
-		_head_ = find(_head_->left, key);
-	}
-	else
-	{
-		if (key > _head_->key && _head_->left != nullptr)
-		{
-			_head_ = find(_head_->right, key);
-		}
-	}
-	return _head_;
+	if (_head_ == nullptr) return nullptr;
+	if (_head_->key == k) return _head_;
+	if (_head_->key > k) return find(_head_->left, k);
+	if (_head_->key < k) return find(_head_->right, k);
 }
 
 template<class Key, class Data>
